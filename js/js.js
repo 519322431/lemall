@@ -1,0 +1,232 @@
+$(function(){
+	function head_hover(a,b,c){
+		$(a).hover(function(){
+			$(b).removeClass('jiantou_up').addClass('jiantou_down');
+			$(c).show();
+		},function(){
+			$(c).hide();	
+			$(b).removeClass('jiantou_down').addClass('jiantou_up')
+		})
+	}
+	head_hover('.language','.jiantou','.language_li')
+	function line_width(obj){
+		var line_width=$(obj).parent().find('a').width();
+		$(obj).width(line_width);	
+	}
+	line_width('.line_box1');
+	line_width('.line_box2');
+	line_width('.line_box3');
+	line_width('.line_box4');
+	$('.le_daohang>li').hover(function(){
+		var i=$('.le_daohang>li').index(this);
+		$('.line').eq(i).stop().animate({
+			width:'100%'
+		},300)
+	},function(){
+		var i=$('.le_daohang>li').index(this);
+		$('.line').eq(i).stop().animate({
+			width:'0'
+		},300)
+	})
+	$('.menu_con>li').hover(function(){
+		$('.menu_con>li>a').stop().animate({
+			color:'#e22924'
+		},300)
+	})
+	function menu_con(a,b){
+		$(a).hover(function(){
+			$(b).show();
+			$(b).stop().animate({
+				height:'55px'
+			},200)
+		},function(){
+			$(b).stop().animate({
+				height:'0'
+			},200,function(){
+				$(b).hide();
+			})
+		})
+	}
+	$('.daohang_menu').width($(document).width());
+	menu_con('.le_shengtai','.le_shengtai_con')
+	menu_con('.le_jieshao','.le_jieshao_con')
+	function luo_move(){
+		$('.first_luo1').stop().animate({
+			top:'92px'
+		},1000)
+		$('.first_luo2').stop().animate({
+			top:'157px'
+		},1100)
+		$('.first_luo3').stop().animate({
+			top:'138px'
+		},1200)
+		$('.first_luo4').stop().animate({
+			top:'11px'
+		},1300)
+		$('.first_luo5').stop().animate({
+			top:'395px'
+		},1400)
+		$('.first_luo6').stop().animate({
+			top:'84px'
+		},1500)
+		$('.first_luo7').stop().animate({
+			top:'292px'
+		},1600)
+		$('.first_luo8').stop().animate({
+			top:'278px'
+		},1700)
+		$('.first_luo9').stop().animate({
+			top:'326px'
+		},1800)
+	}
+	luo_move();
+	$('.first_luo').hover(function(){
+		var i=$('.first_luo').index(this);
+		$('.first_luo').eq(i).find('.first_word').stop().show();
+	},function(){
+		var i=$('.first_luo').index(this);
+		$('.first_luo').eq(i).find('.first_word').stop().hide();
+	})
+	$('#dowebok').fullpage({
+		afterLoad: function(anchorLink, index){
+			if(index == 1){
+				luo_move()
+			}
+			if(index == 2){
+				$('.second_play').animate({
+					opacity:'1',
+					top:'30%'
+				},500)
+				$('.video_tit').delay(250).animate({
+					opacity:'1',
+					top:'40%'
+				},500)
+				$('.second_more').delay(500).animate({
+					opacity:'1',
+					top:'49%'
+				},500)
+			}
+			if(index == 3){
+				$('.third_datu').animate({
+					top:'0px'
+				},800)
+				$('.third_box0').delay(500).animate({
+					opacity:'1',
+					left:'0'
+				},500)
+				$('.third_box2').delay(500).animate({
+					opacity:'1',
+					left:'280px'
+				},500)
+				$('.third_box3').delay(500).animate({
+					opacity:'1',
+					left:'580px'
+				},500)
+				$('.third_box4').delay(500).animate({
+					opacity:'1',
+					left:'880px'
+				},500)
+				$('.third_more').delay(500).animate({
+					opacity:'1',
+					bottom:'100px'
+				},500)
+			}
+			if(index == 4){
+				$('.fourth_body_box').animate({
+					left:'0',
+					opacity:'1'
+				},1000)
+			}
+		},
+		onLeave: function(index, direction){
+			if(index == 1){
+				$('.first_luo1').stop().animate({
+					top:'-331px'
+				},1000)
+				$('.first_luo2').stop().animate({
+					top:'-331px'
+				},1100)
+				$('.first_luo3').stop().animate({
+					top:'-331px'
+				},1200)
+				$('.first_luo4').stop().animate({
+					top:'-331px'
+				},1300)
+				$('.first_luo5').stop().animate({
+					top:'-331px'
+				},1400)
+				$('.first_luo6').stop().animate({
+					top:'-331px'
+				},1500)
+				$('.first_luo7').stop().animate({
+					top:'-331px'
+				},1600)
+				$('.first_luo8').stop().animate({
+					top:'-331px'
+				},1700)
+				$('.first_luo9').stop().animate({
+					top:'-331px'
+				},1800)
+			}
+			if(index == '2'){
+				$('.second_play').animate({
+					opacity:'0',
+					top:'35%'
+				},1000)
+				$('.video_tit').animate({
+					opacity:'0',
+					top:'45%'
+				},1000)
+				$('.second_more').animate({
+					opacity:'0',
+					top:'54%'
+				},1000)
+			}
+			if(index == '3'){
+				$('.third_datu').animate({
+					top:'-450px'
+				},800)
+				$('.third_box0').animate({
+					opacity:'0',
+					left:'-50px'
+				},500)
+				$('.third_box2').animate({
+					opacity:'0',
+					left:'230px'
+				},500)
+				$('.third_box3').animate({
+					opacity:'0',
+					left:'630px'
+				},500)
+				$('.third_box4').animate({
+					opacity:'0',
+					left:'930px'
+				},500)
+				$('.third_more').animate({
+					opacity:'0',
+					bottom:'70px'
+				},500)
+			}
+			if(index == '4'){
+				$('.fourth_body_box').animate({
+					left:'-110px',
+					opacity:'0'
+				},1000)
+			}
+		}
+	});
+	$('.fourth_pinpai').hover(function(){
+		var i=$('.fourth_pinpai').index(this);
+		$('.fourth_fabu').eq(i).hide()
+		$('.fourth_pinpai').eq(i).find('.fourth_tit').stop().animate({
+			bottom:'-26px'
+		},100)
+	},function(){
+		var i=$('.fourth_pinpai').index(this);
+		$('.fourth_pinpai').eq(i).find('.fourth_tit').stop().animate({
+			bottom:'10px'
+		},100,function(){
+			$('.fourth_fabu').eq(i).show();
+		})
+	})
+})
